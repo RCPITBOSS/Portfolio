@@ -1,32 +1,33 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Providers } from './providers';
-import { Toaster } from '@/components/ui/toaster';
+import { Nav } from '@/components/layout/nav';
+import { Footer } from '@/components/layout/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'SaaS Starter Kit',
-    template: '%s | SaaS Starter Kit',
+    default: 'Brian Greenbaum | Full-Stack Developer',
+    template: '%s | Brian Greenbaum',
   },
-  description: 'A production-ready SaaS starter kit built with Next.js 14, Supabase, and TypeScript',
-  keywords: ['SaaS', 'starter kit', 'Next.js', 'Supabase', 'TypeScript'],
-  authors: [{ name: 'Your Name' }],
+  description:
+    'Full-stack developer building modern web applications with Next.js, TypeScript, and Supabase.',
+  keywords: ['developer', 'portfolio', 'Next.js', 'TypeScript', 'React', 'full-stack'],
+  authors: [{ name: 'Brian Greenbaum' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'SaaS Starter Kit',
-    title: 'SaaS Starter Kit',
+    siteName: 'Brian Greenbaum',
+    title: 'Brian Greenbaum | Full-Stack Developer',
     description:
-      'A production-ready SaaS starter kit built with Next.js 14, Supabase, and TypeScript',
+      'Full-stack developer building modern web applications with Next.js, TypeScript, and Supabase.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SaaS Starter Kit',
+    title: 'Brian Greenbaum | Full-Stack Developer',
     description:
-      'A production-ready SaaS starter kit built with Next.js 14, Supabase, and TypeScript',
+      'Full-stack developer building modern web applications with Next.js, TypeScript, and Supabase.',
   },
   robots: {
     index: true,
@@ -40,12 +41,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          {children}
-          <Toaster />
-        </Providers>
+        <Nav />
+        <main className="min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   );
